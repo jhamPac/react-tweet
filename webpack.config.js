@@ -15,7 +15,10 @@ module.exports = {
       exclude: /node_modules/,
       loader: 'babel-loader',
       options: { presets: ['es2015', 'react'] }
-      }]
+    }, {
+      test: /\.css$/,
+      use: [ 'style-loader', 'css-loader']
+    }]
   },
 
   resolve: {
