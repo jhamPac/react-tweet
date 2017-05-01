@@ -3,8 +3,16 @@ const ReactDOM = require('react-dom');
 
 class TweetBox extends React.Component {
 
+  constructor(props) {
+    super(props);
+
+    this.state = {
+      text: ""
+    };
+  }
+
   handleChange(event) {
-    console.log('yup');
+    this.setState({text: event.target.value});
   }
 
   render() {
@@ -13,7 +21,7 @@ class TweetBox extends React.Component {
         <div className="well clearfix">
           <textarea className="form-control" onChange={this.handleChange.bind(this)}></textarea>
           <br/>
-          <button className="btn btn-primary pull-right" disabled>Tweet</button>
+          <button className="btn btn-primary pull-right" disabled={this.state.text.length === 0}>Tweet</button>
         </div>
     );
   }
